@@ -1,0 +1,24 @@
+{
+  "rfq_id": "RFQ-2026-001",
+  "buyer": "ABC Manufacturing Ltd",
+  "items": [
+    {
+      "description": "Centrifugal Pump",
+      "quantity": 5,
+      "specifications": "50HP, Stainless Steel 316, Flow: 500 GPM"
+    },
+    {
+      "description": "Electric Motor",
+      "quantity": 10,
+      "specifications": "5HP, 3-phase, 415V, 50Hz, TEFC"
+    },
+    {
+      "description": "Control Panel",
+      "quantity": 2,
+      "specifications": "IP65, with VFD, 415V"
+    }
+  ],
+  "delivery_location": "Mumbai, India",
+  "deadline": "2026-03-15",
+  "budget": "USD 75,000 - 100,000"
+}

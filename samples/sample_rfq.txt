@@ -1,0 +1,68 @@
+REQUEST FOR QUOTATION
+
+Date: January 8, 2026
+RFQ No: RFQ-2026-ELEC-001
+
+Dear Supplier,
+
+We are seeking quotations for the following electrical equipment for our new manufacturing facility:
+
+ITEM LIST:
+
+1. Electric Motors
+   - Quantity: 15 units
+   - Specifications: 5HP, 3-phase, 415V, 50Hz
+   - Enclosure: TEFC (Totally Enclosed Fan Cooled)
+   - Mounting: Foot mounted
+   - Efficiency: IE3 or higher
+
+2. Centrifugal Pumps
+   - Quantity: 8 units
+   - Specifications: 50HP, Stainless Steel 316
+   - Flow Rate: 500 GPM
+   - Head: 100 feet
+   - Application: Chemical transfer
+
+3. Control Panels
+   - Quantity: 3 units
+   - Specifications: IP65 rated
+   - Include: VFD, PLC, HMI
+   - Voltage: 415V, 3-phase
+
+4. Cable Trays
+   - Quantity: 200 meters
+   - Material: Hot-dip galvanized steel
+   - Size: 300mm x 100mm
+
+COMMERCIAL TERMS:
+
+Delivery Location: Chicago, IL, USA
+Delivery Timeline: Within 8 weeks from PO
+Payment Terms: 30% advance, 70% against delivery
+Incoterms: FOB destination
+Quotation Validity: 60 days
+Submission Deadline: February 5, 2026
+
+Budget Range: USD 150,000 - 200,000
+
+REQUIREMENTS:
+- OEM parts preferred
+- Manufacturer warranty: Minimum 12 months
+- Installation support required
+- Spare parts list to be provided
+
+Please submit your best quotation including:
+1. Unit prices
+2. Total cost
+3. Delivery schedule
+4. Warranty terms
+5. Technical datasheets
+
+Contact: procurement@abcmanufacturing.com
+
+Thank you for your participation.
+
+Best regards,
+John Smith
+Procurement Manager
+ABC Manufacturing Ltd.
