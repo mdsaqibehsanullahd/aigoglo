@@ -9,8 +9,9 @@ from pathlib import Path
 import PyPDF2
 import openpyxl
 import pandas as pd
-from PIL import Image
 import json
+from PIL import Image, ImageEnhance  # Add ImageEnhance
+import re  # Add for text processing
 
 logger = logging.getLogger(__name__)
 
@@ -91,24 +92,60 @@ class ExtractorService:
             logger.error(f"Excel extraction error: {e}")
             return f"Excel extraction failed: {str(e)}", {"format": "Excel", "error": str(e)}
     
-    async def extract_from_image(self, file_content: bytes) -> Tuple[bytes, Dict[str, Any]]:
-        """
-        Process image for vision model
-        Returns raw bytes for vision processing
-        """
+    async def extract_from_image(self, file_content: bytes) -> Tuple[str, Dict[str, Any]]:
+        """Enhanced image processing with pre-processing"""
         try:
-            image = Image.open(io.BytesIO(file_content))
+            # Pre-process image for better OCR
+            enhanced_image = self._preprocess_image(file_content)
+            
+            image = Image.open(io.BytesIO(enhanced_image))
             metadata = {
                 "format": "Image",
                 "size": image.size,
-                "mode": image.mode
+                "mode": image.mode,
+                "enhanced": True
             }
             
-            return file_content, metadata
+            return enhanced_image, metadata
             
         except Exception as e:
-            logger.error(f"Image processing error: {e}")
-            return file_content, {"format": "Image", "error": str(e)}
+            logger.error(f"Enhanced image processing error: {e}")
+            # Fallback to original image
+            return file_content, {"format": "Image", "error": str(e), "enhanced": False}
+
+    def _preprocess_image(self, image_bytes: bytes) -> bytes:
+        """Apply image enhancements for better OCR"""
+        try:
+            image = Image.open(io.BytesIO(image_bytes))
+            
+            # Convert to RGB if necessary
+            if image.mode != 'RGB':
+                image = image.convert('RGB')
+            
+            # Enhance contrast
+            enhancer = ImageEnhance.Contrast(image)
+            image = enhancer.enhance(1.5)
+            
+            # Enhance sharpness
+            sharpener = ImageEnhance.Sharpness(image)
+            image = sharpener.enhance(1.3)
+            
+            # Resize if too small (minimum 300 DPI equivalent)
+            width, height = image.size
+            if width < 1000:
+                scale_factor = 1000 / width
+                new_width = int(width * scale_factor)
+                new_height = int(height * scale_factor)
+                image = image.resize((new_width, new_height), Image.Resampling.LANCZOS)
+            
+            # Save enhanced image
+            output = io.BytesIO()
+            image.save(output, format='PNG', quality=95)
+            return output.getvalue()
+            
+        except Exception as e:
+            logger.error(f"Image pre-processing failed: {e}")
+            return image_bytes  # Return original if enhancement fails
     
     async def extract_from_audio(self, file_content: bytes) -> Tuple[bytes, Dict[str, Any]]:
         """
