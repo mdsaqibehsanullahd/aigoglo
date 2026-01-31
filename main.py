@@ -523,7 +523,7 @@ def create_multi_file_ai_summary(products, files, context):
         "category": categories[0] if len(categories) == 1 else "Mixed Equipment",
         "describe_request": f"Combined RFQ from {len(files)} files containing {total_products} products with total quantity of {total_quantity} units",
         "Technical_drawning": "Available upon request",
-        "total_value": f"{total_value:,} USD",
+        "total_value": f"{total_value:,}",
         "currency": "USD",
         "target_region": "Global"
     }

@@ -375,7 +375,7 @@ OUTPUT SCHEMA (STRICT JSON – NO EXTRA TEXT):
 "status": "<Ready|need_clarity>",
 "Model": "<generate if missing: MDL-XXX-NNN>",
 "Category": "<Electrical|Mechanical|Chemical|Instrumentation|etc>",
-"Estimated_cost": "<numeric with unit, e.g. '1500.00'>",
+"Estimated_cost": "<numeric, e.g. '1500.00'>",
 "preference": "<OEM|Equivalent>",
 "Bom": "<generate: BOM-YYYY-NNNN>",
 "Sku": "<generate: SKU-CAT-NNNNNN>",
